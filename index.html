@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="af">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Village | Countryside Gatherings, Beauty and Warm Hospitality</title>
-  <meta name="description" content="The Village is a beautiful countryside destination in Muldersdrift offering a warm and memorable setting for gatherings, special occasions, and meaningful experiences." />
+  <title>The Village | Plattelandse byeenkomste, skoonheid en warm gasvryheid</title>
+  <meta name="description" content="The Village is 'n pragtige plattelandse bestemming in Muldersdrift wat 'n warm en onvergeetlike ruimte bied vir byeenkomste, spesiale geleenthede en betekenisvolle ervarings." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -12,24 +12,30 @@
     <div class="overlay"></div>
     <nav class="nav wrap fade-up">
       <div class="brand">The Village</div>
-      <div class="links">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#contact">Contact</a>
+      <div class="nav-controls">
+        <div class="links">
+          <a href="#about" data-i18n="nav_about">Oor ons</a>
+          <a href="#experience" data-i18n="nav_experience">Ervaring</a>
+          <a href="#gallery" data-i18n="nav_gallery">Galery</a>
+          <a href="#contact" data-i18n="nav_contact">Kontak</a>
+        </div>
+        <div class="language-switcher" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" data-lang="af">Afrikaans</button>
+          <button type="button" class="lang-btn" data-lang="en">English</button>
+        </div>
       </div>
     </nav>
 
     <div class="hero-inner wrap fade-up delay-1">
-      <p class="eyebrow">Countryside beauty. Warm hospitality. Memorable moments.</p>
-      <h1>A modern destination for beautiful gatherings and meaningful experiences</h1>
-      <p class="lead">
-        The Village is a peaceful and welcoming space in Muldersdrift, created for people who love beauty,
-        atmosphere, and memorable moments shared in a setting full of warmth and charm.
+      <p class="eyebrow" data-i18n="hero_eyebrow">Plattelandse skoonheid. Warm gasvryheid. Onvergeetlike oomblikke.</p>
+      <h1 data-i18n="hero_title">’n Moderne bestemming vir pragtige byeenkomste en betekenisvolle ervarings</h1>
+      <p class="lead" data-i18n="hero_lead">
+        The Village is 'n rustige en verwelkomende ruimte in Muldersdrift, geskep vir mense wat hou van skoonheid,
+        atmosfeer en kosbare oomblikke wat in 'n plek vol warmte en bekoring gedeel word.
       </p>
       <div class="cta-row">
-        <a class="btn primary" href="#contact">Make an enquiry</a>
-        <a class="btn secondary" href="#gallery">View the gallery</a>
+        <a class="btn primary" href="#contact" data-i18n="hero_cta_primary">Doen 'n navraag</a>
+        <a class="btn secondary" href="#gallery" data-i18n="hero_cta_secondary">Bekyk die galery</a>
       </div>
     </div>
   </header>
@@ -37,50 +43,50 @@
   <main>
     <section class="statement-section fade-up delay-2">
       <div class="wrap statement-card">
-        <p class="kicker">Welcome to The Village</p>
-        <h2>Designed to feel calm, beautiful, and unforgettable from the moment you arrive</h2>
+        <p class="kicker" data-i18n="welcome_kicker">Welkom by The Village</p>
+        <h2 data-i18n="welcome_title">Ontwerp om rustig, mooi en onvergeetlik te voel van die oomblik wat jy arriveer</h2>
       </div>
     </section>
 
     <section id="about" class="section wrap split-layout">
       <div class="content-block fade-up">
-        <p class="kicker">About</p>
-        <h2>A setting shaped by atmosphere, beauty, and heart</h2>
-        <p>
-          The Village offers a refined countryside experience with inviting surroundings, natural charm,
-          and a welcoming atmosphere that makes every visit feel special.
+        <p class="kicker" data-i18n="about_kicker">Oor ons</p>
+        <h2 data-i18n="about_title">’n Ruimte gevorm deur atmosfeer, skoonheid en hart</h2>
+        <p data-i18n="about_p1">
+          The Village bied 'n verfynde plattelandse ervaring met uitnodigende omgewing, natuurlike bekoring,
+          en 'n verwelkomende atmosfeer wat elke besoek besonders laat voel.
         </p>
-        <p>
-          Whether guests come for connection, celebration, or simply to enjoy a peaceful and beautiful space,
-          The Village is designed to leave a lasting impression.
+        <p data-i18n="about_p2">
+          Of gaste kom vir verbinding, viering, of bloot om 'n rustige en pragtige ruimte te geniet,
+          The Village is ontwerp om 'n blywende indruk te laat.
         </p>
       </div>
       <div class="visual-card fade-up delay-1">
-        <img src="assets/gallery-1.jpg" alt="The Village elegant outdoor setting" />
+        <img src="assets/gallery-1.jpg" alt="The Village elegant outdoor setting" data-i18n-alt="about_image_alt" />
       </div>
     </section>
 
     <section id="experience" class="section alt">
       <div class="wrap">
         <div class="section-heading center fade-up">
-          <p class="kicker">Experience</p>
-          <h2>A beautiful place to gather, celebrate, and enjoy</h2>
+          <p class="kicker" data-i18n="experience_kicker">Ervaring</p>
+          <h2 data-i18n="experience_title">’n Pragtige plek om bymekaar te kom, te vier en te geniet</h2>
         </div>
         <div class="feature-grid">
           <article class="feature-card fade-up hover-lift">
             <span class="feature-number">01</span>
-            <h3>Beautiful surroundings</h3>
-            <p>Open space, natural beauty, and an atmosphere that feels both peaceful and elevated.</p>
+            <h3 data-i18n="feature1_title">Pragtige omgewing</h3>
+            <p data-i18n="feature1_text">Oop ruimtes, natuurlike skoonheid en 'n atmosfeer wat terselfdertyd rustig en stylvol voel.</p>
           </article>
           <article class="feature-card fade-up delay-1 hover-lift">
             <span class="feature-number">02</span>
-            <h3>Warm hospitality</h3>
-            <p>A welcoming setting designed to make guests feel comfortable, relaxed, and cared for.</p>
+            <h3 data-i18n="feature2_title">Warm gasvryheid</h3>
+            <p data-i18n="feature2_text">’n Verwelkomende ruimte wat ontwerp is om gaste gemaklik, ontspanne en tuis te laat voel.</p>
           </article>
           <article class="feature-card fade-up delay-2 hover-lift">
             <span class="feature-number">03</span>
-            <h3>Memorable moments</h3>
-            <p>A destination suited to meaningful gatherings, celebrations, and special shared experiences.</p>
+            <h3 data-i18n="feature3_title">Onvergeetlike oomblikke</h3>
+            <p data-i18n="feature3_text">’n Bestemming wat pas by betekenisvolle byeenkomste, vieringe en spesiale gedeelde ervarings.</p>
           </article>
         </div>
       </div>
@@ -88,34 +94,34 @@
 
     <section id="gallery" class="section wrap">
       <div class="section-heading center fade-up">
-        <p class="kicker">Gallery</p>
-        <h2>A modern countryside look with timeless charm</h2>
-        <p>These spaces and details help create the warm, distinctive atmosphere that makes The Village feel special.</p>
+        <p class="kicker" data-i18n="gallery_kicker">Galery</p>
+        <h2 data-i18n="gallery_title">’n Moderne plattelandse voorkoms met tydlose bekoring</h2>
+        <p data-i18n="gallery_text">Hierdie ruimtes en besonderhede skep die warm, unieke atmosfeer wat The Village so besonders maak.</p>
       </div>
       <div class="masonry-grid lightbox-gallery">
         <figure class="gallery-card tall fade-up">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/hero.jpg" data-gallery-alt="The Village main setting and grounds">
-            <img src="assets/hero.jpg" alt="The Village main setting and grounds" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/hero.jpg" data-gallery-alt-af="The Village se hoofruimte en terrein" data-gallery-alt-en="The Village main setting and grounds">
+            <img src="assets/hero.jpg" alt="The Village se hoofruimte en terrein" data-i18n-alt="gallery_img1_alt" />
           </button>
         </figure>
         <figure class="gallery-card fade-up delay-1">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-1.jpg" data-gallery-alt="The Village venue exterior and seating area">
-            <img src="assets/gallery-1.jpg" alt="The Village venue exterior and seating area" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-1.jpg" data-gallery-alt-af="The Village se buiteruimte en sitarea" data-gallery-alt-en="The Village venue exterior and seating area">
+            <img src="assets/gallery-1.jpg" alt="The Village se buiteruimte en sitarea" data-i18n-alt="gallery_img2_alt" />
           </button>
         </figure>
         <figure class="gallery-card fade-up delay-2">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-2.jpg" data-gallery-alt="The Village outdoor space">
-            <img src="assets/gallery-2.jpg" alt="The Village outdoor space" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-2.jpg" data-gallery-alt-af="The Village se buitelugruimte" data-gallery-alt-en="The Village outdoor space">
+            <img src="assets/gallery-2.jpg" alt="The Village se buitelugruimte" data-i18n-alt="gallery_img3_alt" />
           </button>
         </figure>
         <figure class="gallery-card wide fade-up">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-3.jpg" data-gallery-alt="The Village warm countryside atmosphere">
-            <img src="assets/gallery-3.jpg" alt="The Village warm countryside atmosphere" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-3.jpg" data-gallery-alt-af="The Village se warm plattelandse atmosfeer" data-gallery-alt-en="The Village warm countryside atmosphere">
+            <img src="assets/gallery-3.jpg" alt="The Village se warm plattelandse atmosfeer" data-i18n-alt="gallery_img4_alt" />
           </button>
         </figure>
         <figure class="gallery-card fade-up delay-1">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-4.jpg" data-gallery-alt="The Village detail and charm">
-            <img src="assets/gallery-4.jpg" alt="The Village detail and charm" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-4.jpg" data-gallery-alt-af="The Village se besonderhede en bekoring" data-gallery-alt-en="The Village detail and charm">
+            <img src="assets/gallery-4.jpg" alt="The Village se besonderhede en bekoring" data-i18n-alt="gallery_img5_alt" />
           </button>
         </figure>
       </div>
@@ -124,34 +130,34 @@
     <section class="section highlight-band">
       <div class="wrap highlight-grid">
         <div class="fade-up">
-          <p class="kicker">Why people remember it</p>
-          <h2>It feels both peaceful and personal</h2>
+          <p class="kicker" data-i18n="highlight_kicker">Hoekom mense dit onthou</p>
+          <h2 data-i18n="highlight_title">Dit voel terselfdertyd rustig en persoonlik</h2>
         </div>
-        <p class="fade-up delay-1">
-          The Village stands out because it combines natural beauty, a welcoming atmosphere, and a sense of calm that turns ordinary moments into memorable ones.
+        <p class="fade-up delay-1" data-i18n="highlight_text">
+          The Village staan uit omdat dit natuurlike skoonheid, 'n verwelkomende atmosfeer en 'n gevoel van kalmte kombineer wat gewone oomblikke in kosbare herinneringe verander.
         </p>
       </div>
     </section>
 
     <section class="section wrap photo-strip-section">
       <div class="section-heading center fade-up">
-        <p class="kicker">More of the setting</p>
-        <h2>Details that add warmth and character</h2>
+        <p class="kicker" data-i18n="details_kicker">Nog van die ruimte</p>
+        <h2 data-i18n="details_title">Besonderhede wat warmte en karakter byvoeg</h2>
       </div>
       <div class="photo-strip lightbox-gallery">
         <figure class="gallery-card fade-up">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-1.jpg" data-gallery-alt="The Village pool detail">
-            <img src="assets/reel-1.jpg" alt="The Village pool detail" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-1.jpg" data-gallery-alt-af="The Village se swembad detail" data-gallery-alt-en="The Village pool detail">
+            <img src="assets/reel-1.jpg" alt="The Village se swembad detail" data-i18n-alt="gallery_img6_alt" />
           </button>
         </figure>
         <figure class="gallery-card fade-up delay-1">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-6.jpg" data-gallery-alt="The Village firepit seating area">
-            <img src="assets/reel-6.jpg" alt="The Village firepit seating area" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-6.jpg" data-gallery-alt-af="The Village se vuurput en sitarea" data-gallery-alt-en="The Village firepit seating area">
+            <img src="assets/reel-6.jpg" alt="The Village se vuurput en sitarea" data-i18n-alt="gallery_img7_alt" />
           </button>
         </figure>
         <figure class="gallery-card fade-up delay-2">
-          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-7.jpg" data-gallery-alt="The Village exterior and garden">
-            <img src="assets/reel-7.jpg" alt="The Village exterior and garden" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-7.jpg" data-gallery-alt-af="The Village se buitekant en tuin" data-gallery-alt-en="The Village exterior and garden">
+            <img src="assets/reel-7.jpg" alt="The Village se buitekant en tuin" data-i18n-alt="gallery_img8_alt" />
           </button>
         </figure>
       </div>
@@ -160,18 +166,18 @@
     <section id="contact" class="section contact-section">
       <div class="wrap contact-grid">
         <div class="fade-up">
-          <p class="kicker">Contact</p>
-          <h2>Enquire about The Village</h2>
-          <p>
-            To learn more, ask a question, or enquire about the space, get in touch and we will gladly assist.
+          <p class="kicker" data-i18n="contact_kicker">Kontak</p>
+          <h2 data-i18n="contact_title">Doen navraag oor The Village</h2>
+          <p data-i18n="contact_text">
+            Om meer uit te vind, 'n vraag te vra, of navraag te doen oor die ruimte, kontak ons gerus en ons help met graagte.
           </p>
           <div class="cta-row">
-            <a class="btn primary" href="https://wa.me/27834468070" target="_blank" rel="noopener">WhatsApp us</a>
-            <a class="btn ghost" href="https://www.facebook.com/DieShack/" target="_blank" rel="noopener">View Facebook</a>
+            <a class="btn primary" href="https://wa.me/27834468070" target="_blank" rel="noopener" data-i18n="contact_cta_whatsapp">WhatsApp ons</a>
+            <a class="btn ghost" href="https://www.facebook.com/DieShack/" target="_blank" rel="noopener" data-i18n="contact_cta_facebook">Bekyk Facebook</a>
           </div>
         </div>
         <div class="contact-card fade-up delay-1">
-          <p><strong>Location</strong><br />47 Riverside Road, Muldersdrift</p>
+          <p><strong data-i18n="contact_location_label">Ligging</strong><br /><a class="contact-link" href="https://www.google.com/maps/search/?api=1&query=47+Riverside+Road,+Muldersdrift" target="_blank" rel="noopener" data-i18n="contact_location_value">47 Riverside Road, Muldersdrift</a></p>
           <div class="map-embed">
             <iframe
               title="The Village location map"
@@ -181,8 +187,8 @@
               allowfullscreen>
             </iframe>
           </div>
-          <p><strong>Phone</strong><br /><a class="contact-link" href="tel:+27834468070">083 446 8070</a></p>
-          <p><strong>Email</strong><br /><a class="contact-link" href="mailto:info@thevilligebyanne.co.za">info@thevilligebyanne.co.za</a></p>
+          <p><strong data-i18n="contact_phone_label">Telefoon</strong><br /><a class="contact-link" href="tel:+27834468070">083 446 8070</a></p>
+          <p><strong>E-pos</strong><br /><a class="contact-link" href="mailto:info@thevilligebyanne.co.za">info@thevilligebyanne.co.za</a></p>
         </div>
       </div>
     </section>
@@ -199,6 +205,113 @@
   </div>
 
   <script>
+    const translations = {
+      af: {
+        page_title: "The Village | Plattelandse byeenkomste, skoonheid en warm gasvryheid",
+        meta_description: "The Village is 'n pragtige plattelandse bestemming in Muldersdrift wat 'n warm en onvergeetlike ruimte bied vir byeenkomste, spesiale geleenthede en betekenisvolle ervarings.",
+        nav_about: "Oor ons",
+        nav_experience: "Ervaring",
+        nav_gallery: "Galery",
+        nav_contact: "Kontak",
+        hero_eyebrow: "Plattelandse skoonheid. Warm gasvryheid. Onvergeetlike oomblikke.",
+        hero_title: "’n Moderne bestemming vir pragtige byeenkomste en betekenisvolle ervarings",
+        hero_lead: "The Village is 'n rustige en verwelkomende ruimte in Muldersdrift, geskep vir mense wat hou van skoonheid, atmosfeer en kosbare oomblikke wat in 'n plek vol warmte en bekoring gedeel word.",
+        hero_cta_primary: "Doen 'n navraag",
+        hero_cta_secondary: "Bekyk die galery",
+        welcome_kicker: "Welkom by The Village",
+        welcome_title: "Ontwerp om rustig, mooi en onvergeetlik te voel van die oomblik wat jy arriveer",
+        about_kicker: "Oor ons",
+        about_title: "’n Ruimte gevorm deur atmosfeer, skoonheid en hart",
+        about_p1: "The Village bied 'n verfynde plattelandse ervaring met uitnodigende omgewing, natuurlike bekoring, en 'n verwelkomende atmosfeer wat elke besoek besonders laat voel.",
+        about_p2: "Of gaste kom vir verbinding, viering, of bloot om 'n rustige en pragtige ruimte te geniet, The Village is ontwerp om 'n blywende indruk te laat.",
+        about_image_alt: "The Village elegante buiteruimte",
+        experience_kicker: "Ervaring",
+        experience_title: "’n Pragtige plek om bymekaar te kom, te vier en te geniet",
+        feature1_title: "Pragtige omgewing",
+        feature1_text: "Oop ruimtes, natuurlike skoonheid en 'n atmosfeer wat terselfdertyd rustig en stylvol voel.",
+        feature2_title: "Warm gasvryheid",
+        feature2_text: "’n Verwelkomende ruimte wat ontwerp is om gaste gemaklik, ontspanne en tuis te laat voel.",
+        feature3_title: "Onvergeetlike oomblikke",
+        feature3_text: "’n Bestemming wat pas by betekenisvolle byeenkomste, vieringe en spesiale gedeelde ervarings.",
+        gallery_kicker: "Galery",
+        gallery_title: "’n Moderne plattelandse voorkoms met tydlose bekoring",
+        gallery_text: "Hierdie ruimtes en besonderhede skep die warm, unieke atmosfeer wat The Village so besonders maak.",
+        gallery_img1_alt: "The Village se hoofruimte en terrein",
+        gallery_img2_alt: "The Village se buiteruimte en sitarea",
+        gallery_img3_alt: "The Village se buitelugruimte",
+        gallery_img4_alt: "The Village se warm plattelandse atmosfeer",
+        gallery_img5_alt: "The Village se besonderhede en bekoring",
+        highlight_kicker: "Hoekom mense dit onthou",
+        highlight_title: "Dit voel terselfdertyd rustig en persoonlik",
+        highlight_text: "The Village staan uit omdat dit natuurlike skoonheid, 'n verwelkomende atmosfeer en 'n gevoel van kalmte kombineer wat gewone oomblikke in kosbare herinneringe verander.",
+        details_kicker: "Nog van die ruimte",
+        details_title: "Besonderhede wat warmte en karakter byvoeg",
+        gallery_img6_alt: "The Village se swembad detail",
+        gallery_img7_alt: "The Village se vuurput en sitarea",
+        gallery_img8_alt: "The Village se buitekant en tuin",
+        contact_kicker: "Kontak",
+        contact_title: "Doen navraag oor The Village",
+        contact_text: "Om meer uit te vind, 'n vraag te vra, of navraag te doen oor die ruimte, kontak ons gerus en ons help met graagte.",
+        contact_cta_whatsapp: "WhatsApp ons",
+        contact_cta_facebook: "Bekyk Facebook",
+        contact_location_label: "Ligging",
+        contact_location_value: "47 Riverside Road, Muldersdrift",
+        contact_phone_label: "Telefoon"
+      },
+      en: {
+        page_title: "The Village | Countryside Gatherings, Beauty and Warm Hospitality",
+        meta_description: "The Village is a beautiful countryside destination in Muldersdrift offering a warm and memorable setting for gatherings, special occasions, and meaningful experiences.",
+        nav_about: "About",
+        nav_experience: "Experience",
+        nav_gallery: "Gallery",
+        nav_contact: "Contact",
+        hero_eyebrow: "Countryside beauty. Warm hospitality. Memorable moments.",
+        hero_title: "A modern destination for beautiful gatherings and meaningful experiences",
+        hero_lead: "The Village is a peaceful and welcoming space in Muldersdrift, created for people who love beauty, atmosphere, and memorable moments shared in a setting full of warmth and charm.",
+        hero_cta_primary: "Make an enquiry",
+        hero_cta_secondary: "View the gallery",
+        welcome_kicker: "Welcome to The Village",
+        welcome_title: "Designed to feel calm, beautiful, and unforgettable from the moment you arrive",
+        about_kicker: "About",
+        about_title: "A setting shaped by atmosphere, beauty, and heart",
+        about_p1: "The Village offers a refined countryside experience with inviting surroundings, natural charm, and a welcoming atmosphere that makes every visit feel special.",
+        about_p2: "Whether guests come for connection, celebration, or simply to enjoy a peaceful and beautiful space, The Village is designed to leave a lasting impression.",
+        about_image_alt: "The Village elegant outdoor setting",
+        experience_kicker: "Experience",
+        experience_title: "A beautiful place to gather, celebrate, and enjoy",
+        feature1_title: "Beautiful surroundings",
+        feature1_text: "Open space, natural beauty, and an atmosphere that feels both peaceful and elevated.",
+        feature2_title: "Warm hospitality",
+        feature2_text: "A welcoming setting designed to make guests feel comfortable, relaxed, and cared for.",
+        feature3_title: "Memorable moments",
+        feature3_text: "A destination suited to meaningful gatherings, celebrations, and special shared experiences.",
+        gallery_kicker: "Gallery",
+        gallery_title: "A modern countryside look with timeless charm",
+        gallery_text: "These spaces and details help create the warm, distinctive atmosphere that makes The Village feel special.",
+        gallery_img1_alt: "The Village main setting and grounds",
+        gallery_img2_alt: "The Village venue exterior and seating area",
+        gallery_img3_alt: "The Village outdoor space",
+        gallery_img4_alt: "The Village warm countryside atmosphere",
+        gallery_img5_alt: "The Village detail and charm",
+        highlight_kicker: "Why people remember it",
+        highlight_title: "It feels both peaceful and personal",
+        highlight_text: "The Village stands out because it combines natural beauty, a welcoming atmosphere, and a sense of calm that turns ordinary moments into memorable ones.",
+        details_kicker: "More of the setting",
+        details_title: "Details that add warmth and character",
+        gallery_img6_alt: "The Village pool detail",
+        gallery_img7_alt: "The Village firepit seating area",
+        gallery_img8_alt: "The Village exterior and garden",
+        contact_kicker: "Contact",
+        contact_title: "Enquire about The Village",
+        contact_text: "To learn more, ask a question, or enquire about the space, get in touch and we will gladly assist.",
+        contact_cta_whatsapp: "WhatsApp us",
+        contact_cta_facebook: "View Facebook",
+        contact_location_label: "Location",
+        contact_location_value: "47 Riverside Road, Muldersdrift",
+        contact_phone_label: "Phone"
+      }
+    };
+
     (function () {
       const triggers = Array.from(document.querySelectorAll('.gallery-trigger'));
       const lightbox = document.getElementById('lightbox');
@@ -207,18 +320,27 @@
       const closeBtn = document.querySelector('.lightbox-close');
       const prevBtn = document.querySelector('.lightbox-nav.prev');
       const nextBtn = document.querySelector('.lightbox-nav.next');
+      const langButtons = Array.from(document.querySelectorAll('.lang-btn'));
+      const metaDescription = document.querySelector('meta[name="description"]');
       let currentIndex = 0;
+      let currentLang = 'af';
 
       const items = triggers.map((trigger) => ({
         src: trigger.dataset.galleryImage,
-        alt: trigger.dataset.galleryAlt || ''
+        altAf: trigger.dataset.galleryAltAf || '',
+        altEn: trigger.dataset.galleryAltEn || ''
       }));
+
+      function currentAlt(item) {
+        return currentLang === 'af' ? item.altAf : item.altEn;
+      }
 
       function render(index) {
         const item = items[index];
+        const alt = currentAlt(item);
         lightboxImage.src = item.src;
-        lightboxImage.alt = item.alt;
-        lightboxCaption.textContent = item.alt;
+        lightboxImage.alt = alt;
+        lightboxCaption.textContent = alt;
         currentIndex = index;
       }
 
@@ -240,6 +362,29 @@
         render(nextIndex);
       }
 
+      function applyTranslations(lang) {
+        currentLang = lang;
+        document.documentElement.lang = lang;
+        document.title = translations[lang].page_title;
+        metaDescription.setAttribute('content', translations[lang].meta_description);
+
+        document.querySelectorAll('[data-i18n]').forEach((el) => {
+          const key = el.dataset.i18n;
+          if (translations[lang][key]) el.textContent = translations[lang][key];
+        });
+
+        document.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+          const key = el.dataset.i18nAlt;
+          if (translations[lang][key]) el.setAttribute('alt', translations[lang][key]);
+        });
+
+        langButtons.forEach((btn) => {
+          btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+
+        if (lightbox.classList.contains('open')) render(currentIndex);
+      }
+
       triggers.forEach((trigger, index) => {
         trigger.addEventListener('click', () => openLightbox(index));
       });
@@ -258,6 +403,12 @@
         if (event.key === 'ArrowLeft') showNext(-1);
         if (event.key === 'ArrowRight') showNext(1);
       });
+
+      langButtons.forEach((btn) => {
+        btn.addEventListener('click', () => applyTranslations(btn.dataset.lang));
+      });
+
+      applyTranslations('af');
     })();
   </script>
 </body>
