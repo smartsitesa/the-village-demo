@@ -92,21 +92,31 @@
         <h2>A modern countryside look with timeless charm</h2>
         <p>These spaces and details help create the warm, distinctive atmosphere that makes The Village feel special.</p>
       </div>
-      <div class="masonry-grid">
+      <div class="masonry-grid lightbox-gallery">
         <figure class="gallery-card tall fade-up">
-          <img src="assets/hero.jpg" alt="The Village main setting and grounds" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/hero.jpg" data-gallery-alt="The Village main setting and grounds">
+            <img src="assets/hero.jpg" alt="The Village main setting and grounds" />
+          </button>
         </figure>
         <figure class="gallery-card fade-up delay-1">
-          <img src="assets/gallery-1.jpg" alt="The Village venue exterior and seating area" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-1.jpg" data-gallery-alt="The Village venue exterior and seating area">
+            <img src="assets/gallery-1.jpg" alt="The Village venue exterior and seating area" />
+          </button>
         </figure>
         <figure class="gallery-card fade-up delay-2">
-          <img src="assets/gallery-2.jpg" alt="The Village outdoor space" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-2.jpg" data-gallery-alt="The Village outdoor space">
+            <img src="assets/gallery-2.jpg" alt="The Village outdoor space" />
+          </button>
         </figure>
         <figure class="gallery-card wide fade-up">
-          <img src="assets/gallery-3.jpg" alt="The Village warm countryside atmosphere" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-3.jpg" data-gallery-alt="The Village warm countryside atmosphere">
+            <img src="assets/gallery-3.jpg" alt="The Village warm countryside atmosphere" />
+          </button>
         </figure>
         <figure class="gallery-card fade-up delay-1">
-          <img src="assets/gallery-4.jpg" alt="The Village detail and charm" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/gallery-4.jpg" data-gallery-alt="The Village detail and charm">
+            <img src="assets/gallery-4.jpg" alt="The Village detail and charm" />
+          </button>
         </figure>
       </div>
     </section>
@@ -128,15 +138,21 @@
         <p class="kicker">More of the setting</p>
         <h2>Details that add warmth and character</h2>
       </div>
-      <div class="photo-strip">
+      <div class="photo-strip lightbox-gallery">
         <figure class="gallery-card fade-up">
-          <img src="assets/reel-1.jpg" alt="The Village pool detail" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-1.jpg" data-gallery-alt="The Village pool detail">
+            <img src="assets/reel-1.jpg" alt="The Village pool detail" />
+          </button>
         </figure>
         <figure class="gallery-card fade-up delay-1">
-          <img src="assets/reel-6.jpg" alt="The Village firepit seating area" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-6.jpg" data-gallery-alt="The Village firepit seating area">
+            <img src="assets/reel-6.jpg" alt="The Village firepit seating area" />
+          </button>
         </figure>
         <figure class="gallery-card fade-up delay-2">
-          <img src="assets/reel-7.jpg" alt="The Village exterior and garden" />
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/reel-7.jpg" data-gallery-alt="The Village exterior and garden">
+            <img src="assets/reel-7.jpg" alt="The Village exterior and garden" />
+          </button>
         </figure>
       </div>
     </section>
@@ -171,5 +187,78 @@
       </div>
     </section>
   </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
+    <button class="lightbox-nav prev" type="button" aria-label="Previous image">‹</button>
+    <div class="lightbox-stage">
+      <img id="lightbox-image" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-nav next" type="button" aria-label="Next image">›</button>
+  </div>
+
+  <script>
+    (function () {
+      const triggers = Array.from(document.querySelectorAll('.gallery-trigger'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const prevBtn = document.querySelector('.lightbox-nav.prev');
+      const nextBtn = document.querySelector('.lightbox-nav.next');
+      let currentIndex = 0;
+
+      const items = triggers.map((trigger) => ({
+        src: trigger.dataset.galleryImage,
+        alt: trigger.dataset.galleryAlt || ''
+      }));
+
+      function render(index) {
+        const item = items[index];
+        lightboxImage.src = item.src;
+        lightboxImage.alt = item.alt;
+        lightboxCaption.textContent = item.alt;
+        currentIndex = index;
+      }
+
+      function openLightbox(index) {
+        render(index);
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-open');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lightbox-open');
+      }
+
+      function showNext(step) {
+        const nextIndex = (currentIndex + step + items.length) % items.length;
+        render(nextIndex);
+      }
+
+      triggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', () => openLightbox(index));
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', () => showNext(-1));
+      nextBtn.addEventListener('click', () => showNext(1));
+
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (!lightbox.classList.contains('open')) return;
+        if (event.key === 'Escape') closeLightbox();
+        if (event.key === 'ArrowLeft') showNext(-1);
+        if (event.key === 'ArrowRight') showNext(1);
+      });
+    })();
+  </script>
 </body>
 </html>
