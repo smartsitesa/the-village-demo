@@ -197,6 +197,14 @@ p, li, .section-heading p { color: var(--muted); }
 }
 .contact-card { padding: 1.5rem; }
 .contact-card p + p { margin-top: 1rem; }
+.contact-link {
+  color: var(--accent-dark);
+  font-weight: 600;
+  text-decoration: none;
+}
+.contact-link:hover {
+  text-decoration: underline;
+}
 .lightbox-open {
   overflow: hidden;
 }
