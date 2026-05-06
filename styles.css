@@ -28,7 +28,7 @@ a { color: inherit; }
   min-height: 92vh;
   padding: 1.2rem 1.2rem 6rem;
   color: white;
-  background: url('../bloms-ministries-site/fb-images/processed/hero.jpg') center/cover no-repeat;
+  background: url('assets/hero.jpg') center/cover no-repeat;
 }
 .overlay {
   position: absolute;
