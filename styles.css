@@ -39,11 +39,18 @@ a { color: inherit; }
 }
 .nav, .hero-inner { position: relative; z-index: 2; }
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 0.6rem 0 2rem;
+  padding: 0.8rem 1rem;
+  margin-top: 0.5rem;
+  border-radius: 20px;
+  background: rgba(24, 24, 24, 0.22);
+  backdrop-filter: blur(12px);
 }
 .brand {
   font-size: 1.45rem;
@@ -51,6 +58,10 @@ a { color: inherit; }
   letter-spacing: 0.01em;
   text-decoration: none;
   color: inherit;
+  transition: opacity 0.2s ease;
+}
+.brand:hover {
+  opacity: 0.82;
 }
 .nav-controls {
   display: flex;
