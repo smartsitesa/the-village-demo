@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="af">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resa Galery | Foto's van behandelings, produkte en ervarings</title>
+  <meta name="description" content="Verken die Resa galery met foto's van die behandelingsruimte, kreatiewe aktiwiteite, produkte en die warm atmosfeer by The Village." />
+  <link rel="canonical" href="https://adrianver12.github.io/village/resa-gallery.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Resa Galery | Foto's van behandelings, produkte en ervarings" />
+  <meta property="og:description" content="Verken die Resa galery met foto's van die behandelingsruimte, kreatiewe aktiwiteite, produkte en die warm atmosfeer by The Village." />
+  <meta property="og:url" content="https://adrianver12.github.io/village/resa-gallery.html" />
+  <meta property="og:image" content="https://adrianver12.github.io/village/assets/resa-gallery-1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Resa Galery | Foto's van behandelings, produkte en ervarings" />
+  <meta name="twitter:description" content="Verken die Resa galery met foto's van die behandelingsruimte, kreatiewe aktiwiteite, produkte en die warm atmosfeer by The Village." />
+  <meta name="twitter:image" content="https://adrianver12.github.io/village/assets/resa-gallery-1.jpg" />
+  <meta name="robots" content="index, follow" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero hero-small resa-hero">
+    <div class="overlay"></div>
+    <nav class="nav wrap fade-up">
+      <a class="brand" href="index.html">The Village</a>
+      <div class="nav-controls">
+        <div class="links">
+          <a href="index.html#about">Oor ons</a>
+          <a href="index.html#experience">Ervaring</a>
+          <a href="gallery.html">Galery</a>
+          <a href="resa.html">Resa</a>
+          <a href="index.html#contact">Kontak</a>
+        </div>
+        <div class="language-switcher" aria-label="Language switcher">
+          <button type="button" class="lang-btn active" data-lang="af" aria-label="Afrikaans">
+            <span class="lang-flag">🇿🇦</span>
+            <span class="lang-code">AF</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="en" aria-label="English">
+            <span class="lang-flag">🌍</span>
+            <span class="lang-code">EN</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <div class="hero-inner wrap fade-up delay-1 hero-small-inner">
+      <p class="eyebrow">Resa galery</p>
+      <h1>Foto's van behandelings, produkte en ervarings</h1>
+      <p class="lead">Klik op enige foto om dit groter oop te maak en deur die volledige Resa galery te blaai.</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="section wrap">
+      <div class="gallery-page-grid lightbox-gallery">
+        <figure class="gallery-card tall fade-up">
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/resa-gallery-1.jpg" data-gallery-alt-af="Resa ruimte by The Village" data-gallery-alt-en="Resa space at The Village">
+            <img src="assets/resa-gallery-1.jpg" alt="Resa ruimte by The Village" />
+          </button>
+        </figure>
+        <figure class="gallery-card fade-up delay-1">
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/resa-gallery-2.jpg" data-gallery-alt-af="Resa voor en na stylbeeld" data-gallery-alt-en="Resa before and after style image">
+            <img src="assets/resa-gallery-2.jpg" alt="Resa voor en na stylbeeld" />
+          </button>
+        </figure>
+        <figure class="gallery-card fade-up delay-2">
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/resa-gallery-3.jpg" data-gallery-alt-af="Resa kreatiewe ervaring" data-gallery-alt-en="Resa creative experience">
+            <img src="assets/resa-gallery-3.jpg" alt="Resa kreatiewe ervaring" />
+          </button>
+        </figure>
+        <figure class="gallery-card wide fade-up">
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/resa-gallery-4.jpg" data-gallery-alt-af="Resa kreatiewe groepaktiwiteit" data-gallery-alt-en="Resa creative group activity">
+            <img src="assets/resa-gallery-4.jpg" alt="Resa kreatiewe groepaktiwiteit" />
+          </button>
+        </figure>
+        <figure class="gallery-card fade-up delay-1">
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/resa-gallery-5.jpg" data-gallery-alt-af="Resa produkte" data-gallery-alt-en="Resa products">
+            <img src="assets/resa-gallery-5.jpg" alt="Resa produkte" />
+          </button>
+        </figure>
+        <figure class="gallery-card fade-up delay-2">
+          <button class="gallery-trigger" type="button" data-gallery-image="assets/resa-gallery-6.jpg" data-gallery-alt-af="Resa detail en versorging" data-gallery-alt-en="Resa detail and care">
+            <img src="assets/resa-gallery-6.jpg" alt="Resa detail en versorging" />
+          </button>
+        </figure>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
+    <button class="lightbox-nav prev" type="button" aria-label="Previous image">‹</button>
+    <div class="lightbox-stage">
+      <img id="lightbox-image" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-nav next" type="button" aria-label="Next image">›</button>
+  </div>
+
+  <script>
+    window.SMARTSITE_GA4_ID = 'G-XXXXXXXXXX';
+  </script>
+  <script src="tracking-snippet.js"></script>
+  <script>
+    (function () {
+      const triggers = Array.from(document.querySelectorAll('.gallery-trigger'));
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.querySelector('.lightbox-close');
+      const prevBtn = document.querySelector('.lightbox-nav.prev');
+      const nextBtn = document.querySelector('.lightbox-nav.next');
+      let currentIndex = 0;
+
+      const items = triggers.map((trigger) => ({
+        src: trigger.dataset.galleryImage,
+        altAf: trigger.dataset.galleryAltAf || '',
+        altEn: trigger.dataset.galleryAltEn || ''
+      }));
+
+      function render(index) {
+        const item = items[index];
+        lightboxImage.src = item.src;
+        lightboxImage.alt = item.altAf;
+        lightboxCaption.textContent = item.altAf;
+        currentIndex = index;
+      }
+
+      function openLightbox(index) {
+        render(index);
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.classList.add('lightbox-open');
+      }
+
+      function closeLightbox() {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        document.body.classList.remove('lightbox-open');
+      }
+
+      function showNext(step) {
+        const nextIndex = (currentIndex + step + items.length) % items.length;
+        render(nextIndex);
+      }
+
+      triggers.forEach((trigger, index) => {
+        trigger.addEventListener('click', () => openLightbox(index));
+      });
+
+      closeBtn.addEventListener('click', closeLightbox);
+      prevBtn.addEventListener('click', () => showNext(-1));
+      nextBtn.addEventListener('click', () => showNext(1));
+
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+    })();
+  </script>
+</body>
+</html>
