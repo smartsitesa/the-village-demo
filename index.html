@@ -300,6 +300,7 @@
 
       function applyTranslations(lang) {
         currentLang = lang;
+        try { localStorage.setItem('theVillageLanguage', lang); } catch (e) {}
         document.documentElement.lang = lang;
         document.title = translations[lang].page_title;
         metaDescription.setAttribute('content', translations[lang].meta_description);
@@ -324,7 +325,11 @@
         btn.addEventListener('click', () => applyTranslations(btn.dataset.lang));
       });
 
-      applyTranslations('af');
+      let savedLang = 'af';
+      try {
+        savedLang = localStorage.getItem('theVillageLanguage') || 'af';
+      } catch (e) {}
+      applyTranslations(savedLang === 'en' ? 'en' : 'af');
     })();
   </script>
 </body>
