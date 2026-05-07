@@ -41,9 +41,10 @@ a { color: inherit; }
 .nav {
   position: fixed;
   top: 0.9rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: min(1160px, calc(100% - 1.5rem));
+  left: 0.75rem;
+  right: 0.75rem;
+  max-width: 1160px;
+  margin: 0 auto;
   z-index: 50;
   display: flex;
   justify-content: space-between;
