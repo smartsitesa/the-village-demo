@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Village favicon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7f5539"/>
+      <stop offset="100%" stop-color="#b07a4f"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <path d="M16 18h32L32 46 16 18Z" fill="#fff7ef" opacity="0.96"/>
+  <path d="M26 28h12L32 39l-6-11Z" fill="#7f5539" opacity="0.85"/>
+  <circle cx="48" cy="16" r="5" fill="#f6eadf" opacity="0.95"/>
+</svg>
