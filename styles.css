@@ -39,9 +39,9 @@ a { color: inherit; }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(rgba(24, 18, 14, 0.2), rgba(24, 18, 14, 0.74)),
-    linear-gradient(120deg, rgba(176,122,79,0.22), transparent 44%),
-    radial-gradient(circle at top left, rgba(255,255,255,0.16), transparent 30%);
+    linear-gradient(rgba(24, 18, 14, 0.38), rgba(24, 18, 14, 0.8)),
+    linear-gradient(120deg, rgba(176,122,79,0.18), transparent 44%),
+    radial-gradient(circle at top left, rgba(255,255,255,0.08), transparent 28%);
 }
 .nav, .hero-inner { position: relative; z-index: 2; }
 .nav {
@@ -156,6 +156,8 @@ a { color: inherit; }
   letter-spacing: 0.16em;
   font-size: 0.78rem;
   font-weight: 700;
+  color: rgba(255,255,255,0.96);
+  text-shadow: 0 2px 12px rgba(0,0,0,0.55);
 }
 h1, h2, h3 { margin: 0; text-wrap: balance; }
 h1 {
@@ -163,12 +165,14 @@ h1 {
   font-size: clamp(3rem, 6vw, 5.6rem);
   line-height: 0.94;
   max-width: 900px;
+  text-shadow: 0 8px 24px rgba(0,0,0,0.28);
 }
 .lead {
   max-width: 720px;
   font-size: 1.08rem;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255,255,255,0.96);
   margin-top: 1.35rem;
+  text-shadow: 0 4px 18px rgba(0,0,0,0.35);
 }
 
 .hero-metrics {
