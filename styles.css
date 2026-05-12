@@ -752,6 +752,20 @@ p, li, .section-heading p { color: var(--muted); }
   height: 260px;
   border: 0;
 }
+.site-footer {
+  border-top: 1px solid var(--line);
+  background: #f8f3ec;
+  color: var(--muted);
+}
+.site-footer-inner {
+  padding: 1.1rem 0 1.4rem;
+  text-align: center;
+}
+.site-footer p {
+  margin: 0;
+  font-size: 0.95rem;
+  letter-spacing: 0.01em;
+}
 .hover-lift { transition: transform 0.26s ease, box-shadow 0.26s ease; }
 .hover-lift:hover {
   transform: translateY(-6px);
