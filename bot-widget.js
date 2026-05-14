@@ -3,6 +3,7 @@
   const businessName = cfg.businessName || 'Business';
   const generic = cfg.genericMessage || `Hi ${businessName}, I need assistance.`;
   const params = Array.isArray(cfg.parameters) ? cfg.parameters : [];
+  const siteAnswers = Array.isArray(cfg.siteAnswers) ? cfg.siteAnswers : [];
 
   function escapeHtml(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
   function waUrl(text){
@@ -55,7 +56,20 @@
     function optionHtml(){return activeOptions.length ? `<div class="chatChoices inChat">${activeOptions.map(q=>`<button data-quick="${escapeHtml(q)}">${escapeHtml(q)}</button>`).join('')}</div>` : ''}
     function draw(){body.innerHTML=langHtml()+'<div class="aiChat">'+messages.map(m=>`<div class="chatMsg ${m.type}">${escapeHtml(m.text)}${m.extra||''}</div>`).join('')+optionHtml()+'</div><div class="chatInputRow"><input id="botInput" placeholder="'+escapeHtml(L().inputPlaceholder||'Type your message...')+'"><button id="botSend">'+escapeHtml(L().sendLabel||'Send')+'</button></div>'+footer(); const chat=body.querySelector('.aiChat'); chat.scrollTop=chat.scrollHeight; const inp=document.getElementById('botInput'); document.getElementById('botSend').onclick=submit; body.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>switchLang(b.dataset.lang)); body.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{ const text=b.dataset.quick; b.classList.add('selected'); setTimeout(()=>submitText(text),90); }); inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submit()}}; setTimeout(()=>inp.focus(),20)}
     function switchLang(next){lang=next; try { localStorage.setItem('theVillageLanguage', lang); } catch(e) {} activeOptions=L().quickReplies || []; messages.length=0; add('bot', L().introMessage || `Hello 👋 How can I assist you with ${businessName}?`);}
-    function findReply(text){const t=text.toLowerCase(); for(const p of params){if((p.keywords||[]).some(k=>t.includes(String(k).toLowerCase()))) return replyText(p.reply)} return null}
+    function findReply(text){
+      const t=text.toLowerCase();
+      const pool=[...params,...siteAnswers];
+      for(const p of pool){if((p.keywords||[]).some(k=>t.includes(String(k).toLowerCase()))) return replyText(p.reply)}
+      const words=t.split(/[^a-z0-9áéíóúèêëîïôöûüàâäçñ]+/i).filter(w=>w.length>3);
+      let best=null,score=0;
+      for(const p of pool){
+        const hay=[...(p.keywords||[]), replyText(p.reply)].join(' ').toLowerCase();
+        const hit=words.reduce((n,w)=>n+(hay.includes(w)?1:0),0);
+        if(hit>score){score=hit;best=p;}
+      }
+      if(score>=2 && best) return replyText(best.reply);
+      return null;
+    }
     function setNextOptions(options){activeOptions=options; draw();}
     function showMainMenu(){activeOptions=L().quickReplies || []; add('bot',L().introMessage || `Hello 👋 How can I assist you with ${businessName}?`);}
     function agentReply(text){const label=L().whatsappLabel || 'Speak on WhatsApp'; const link=`<br><br><a target="_blank" rel="noreferrer" style="color:#0b7d16;font-weight:900" href="${waUrl('Hi '+businessName+', I need help with: '+text)}">${escapeHtml(label)}</a>`; setTimeout(()=>{add('bot',L().agentPrompt || 'No problem — would you like to speak to someone on WhatsApp?',link); setNextOptions([L().backLabel || 'Back to menu']);},250)}
