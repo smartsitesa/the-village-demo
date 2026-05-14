@@ -73,5 +73,13 @@ window.SmartSiteBotConfig = {
     { keywords: ['parking', 'parkering'], reply: { af: 'Ek sien nie spesifieke parkering-besonderhede op die webwerf nie. Vra gerus op WhatsApp vir bevestiging.', en: 'I do not see specific parking details on the website. Please ask on WhatsApp to confirm.' } },
     { keywords: ['resa.html', 'gallery.html', 'resa-gallery.html', 'pages', 'bladsye'], reply: { af: 'Die webwerf het hoofbladsye vir Home, Gallery, Resa en Resa Gallery. Die kontak-afdeling is op die hoofblad.', en: 'The website has main pages for Home, Gallery, Resa and Resa Gallery. The contact section is on the homepage.' } }
   ]
+,
+  autoUpdateFromSite: true,
+  sitePages: [
+    { label: 'Home', href: 'index.html' },
+    { label: 'Village Gallery', href: 'gallery.html' },
+    { label: 'Resa', href: 'resa.html' },
+    { label: 'Resa Gallery', href: 'resa-gallery.html' }
+  ]
 
 };

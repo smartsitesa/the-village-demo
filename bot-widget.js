@@ -4,6 +4,7 @@
   const generic = cfg.genericMessage || `Hi ${businessName}, I need assistance.`;
   const params = Array.isArray(cfg.parameters) ? cfg.parameters : [];
   const siteAnswers = Array.isArray(cfg.siteAnswers) ? cfg.siteAnswers : [];
+  const sitePages = Array.isArray(cfg.sitePages) ? cfg.sitePages : [];
 
   function escapeHtml(v){return String(v||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]))}
   function linkHtml(links){return Array.isArray(links)&&links.length ? '<div class="botLinks">'+links.map(l=>`<a href="${escapeHtml(l.href||'#')}">${escapeHtml(l.label||'Open page')}</a>`).join('')+'</div>' : ''}
@@ -50,9 +51,33 @@
     setHead(cfg.botTitle||'Website Bot',cfg.botSubtitle||'Parameter-based assistant');
     const messages=[];
     let activeOptions = L().quickReplies || cfg.quickReplies || [];
+    let pageIndex=[];
+    async function loadSiteIndex(){
+      if(!cfg.autoUpdateFromSite || !sitePages.length || pageIndex.length) return;
+      const pages=await Promise.all(sitePages.map(async page=>{
+        try{
+          const res=await fetch(page.href,{cache:'no-store'});
+          if(!res.ok) return null;
+          const html=await res.text();
+          const doc=new DOMParser().parseFromString(html,'text/html');
+          doc.querySelectorAll('script,style,noscript,svg').forEach(n=>n.remove());
+          const title=doc.querySelector('title')?.textContent || page.label || page.href;
+          const headings=[...doc.querySelectorAll('h1,h2,h3')].map(n=>n.textContent.trim()).filter(Boolean).slice(0,12).join(' | ');
+          const text=[...doc.querySelectorAll('main p, main li, .contact-card p')].map(n=>n.textContent.trim()).filter(Boolean).join(' ').replace(/\s+/g,' ').slice(0,2200);
+          return {label:page.label||title,href:page.href,title,keywords:[page.label||'',title,headings].join(' ').toLowerCase().split(/[^a-z0-9áéíóúèêëîïôöûüàâäçñ]+/i).filter(w=>w.length>3),text};
+        }catch(e){return null;}
+      }));
+      pageIndex=pages.filter(Boolean);
+    }
     const followUpOptions = () => [L().backLabel || 'Back to menu', L().agentLabel || 'Speak to someone'];
     function replyText(reply){return typeof reply==='object' ? (reply[lang] || reply.af || reply.en || '') : reply}
     function answerData(item){return { text: replyText(item.reply), links: item.links || [] }}
+    function pageAnswerData(item){
+      const text = lang==='af'
+        ? `Ek het dit op die ${item.label} blad gekry: ${item.text.slice(0,260)}${item.text.length>260?'...':''}`
+        : `I found this on the ${item.label} page: ${item.text.slice(0,260)}${item.text.length>260?'...':''}`;
+      return { text, links: [{ label: lang==='af' ? `Maak ${item.label} oop` : `Open ${item.label}`, href: item.href }] };
+    }
     function add(type,text,extra=''){messages.push({type,text,extra}); draw();}
     function langHtml(){return cfg.languages ? `<div class="botLang"><button data-lang="af" class="${lang==='af'?'active':''}">AF</button><button data-lang="en" class="${lang==='en'?'active':''}">EN</button></div>` : ''}
     function optionHtml(){return activeOptions.length ? `<div class="chatChoices inChat">${activeOptions.map(q=>`<button data-quick="${escapeHtml(q)}">${escapeHtml(q)}</button>`).join('')}</div>` : ''}
@@ -70,6 +95,13 @@
         if(hit>score){score=hit;best=p;}
       }
       if(score>=2 && best) return answerData(best);
+      let bestPage=null,pageScore=0;
+      for(const page of pageIndex){
+        const hay=(page.title+' '+page.label+' '+page.text+' '+page.keywords.join(' ')).toLowerCase();
+        const hit=words.reduce((n,w)=>n+(hay.includes(w)?1:0),0);
+        if(hit>pageScore){pageScore=hit;bestPage=page;}
+      }
+      if(pageScore>=2 && bestPage) return pageAnswerData(bestPage);
       return null;
     }
     function setNextOptions(options){activeOptions=options; draw();}
@@ -88,6 +120,7 @@
       else{const label=L().whatsappLabel || 'Speak on WhatsApp'; const link=`<br><br><a target="_blank" rel="noreferrer" style="color:#0b7d16;font-weight:900" href="${waUrl('Hi '+businessName+', I need help with: '+text)}">${escapeHtml(label)}</a>`; setTimeout(()=>{add('bot',L().fallback||cfg.fallback||'I am not sure about that. Do you want to speak to an agent?',link); setNextOptions([L().backLabel || 'Back to menu']);},250)}
     }
     function submit(){const inp=document.getElementById('botInput'); const text=inp.value.trim(); inp.value=''; submitText(text)}
+    loadSiteIndex();
     add('bot',L().introMessage || `Hello 👋 How can I assist you with ${businessName}?`);
   }
   function render(v){if(v==='menu')menu(); if(v==='email'||v==='call'||v==='whatsapp')contact(v); if(v==='bot')bot();}
