@@ -1,11 +1,11 @@
 window.SmartSiteBotConfig = {
-  businessName: 'The Village by Anne',
+  businessName: 'The Village by Annè',
   title: 'The Village',
   subtitle: 'Hoe kan ons help? / How can we help?',
   botTitle: 'Village Bot',
   botSubtitle: 'Navraag-assistent / enquiry assistant',
   whatsappNumber: '27834468070',
-  genericMessage: 'Hi The Village by Anne, I would like to enquire about The Village or Resa.',
+  genericMessage: 'Hi The Village by Annè, I would like to enquire about The Village or Resa.',
   fallback: 'Ek is nie heeltemal seker oor daardie vraag nie. Wil jy met iemand op WhatsApp praat?',
   emailSubject: 'The Village enquiry',
   languages: {
@@ -19,7 +19,7 @@ window.SmartSiteBotConfig = {
       agentLabel: 'Praat met iemand',
       agentPrompt: 'Geen probleem — wil jy met iemand op WhatsApp praat?',
       whatsappLabel: 'Praat op WhatsApp',
-      quickReplies: ['Waarmee kan julle help?', 'Ek wil bespreek', 'Verblyf', 'Byeenkoms of event', 'Resa beauty', 'Resa produkte', 'Ligging', 'WhatsApp Anne']
+      quickReplies: ['Waarmee kan julle help?', 'Ek wil bespreek', 'Verblyf', 'Byeenkoms of event', 'Resa beauty', 'Resa produkte', 'Ligging', 'WhatsApp Annè']
     },
     en: {
       label: 'EN',
@@ -31,14 +31,14 @@ window.SmartSiteBotConfig = {
       agentLabel: 'Speak to someone',
       agentPrompt: 'No problem — would you like to speak to someone on WhatsApp?',
       whatsappLabel: 'Speak on WhatsApp',
-      quickReplies: ['What can you help with?', 'I want to enquire', 'Accommodation', 'Gathering or event', 'Resa beauty', 'Resa products', 'Location', 'WhatsApp Anne']
+      quickReplies: ['What can you help with?', 'I want to enquire', 'Accommodation', 'Gathering or event', 'Resa beauty', 'Resa products', 'Location', 'WhatsApp Annè']
     }
   },
   parameters: [
     { keywords: ['hello', 'hi', 'hey', 'hallo', 'goeie more', 'good morning', 'good afternoon', 'goeie middag'], reply: { af: 'Hallo 👋 Hoe kan ek jou help met The Village of Resa? Jy kan vra oor verblyf, byeenkomste, Resa behandelings, produkte, ligging of WhatsApp navrae.', en: 'Hello 👋 How can I help with The Village or Resa? You can ask about accommodation, gatherings, Resa treatments, products, location or WhatsApp enquiries.' } },
     { keywords: ['waarmee kan julle help', 'what can you help with', 'help', 'services', 'dienste', 'options', 'opsies'], reply: { af: 'Ons kan help met The Village navrae, verblyf/guest stay, klein byeenkomste of spesiale geleenthede, rustige plattelandse besoeke, Resa skoonheid/versorging, Resa produkte, ligging en WhatsApp navrae.', en: 'We can help with The Village enquiries, guest stays, small gatherings or special occasions, peaceful countryside visits, Resa beauty/self-care, Resa products, location and WhatsApp enquiries.' } },
     { keywords: ['bespreek', 'booking', 'book', 'enquire', 'enquiry', 'navraag', 'reserve', 'availability', 'beskikbaar'], reply: { af: 'Graag. Stuur asseblief jou naam, datum, aantal mense, tipe navraag en enige spesiale versoeke. Ons kan dit dan op WhatsApp deurstuur vir opvolg.', en: 'Gladly. Please send your name, date, number of people, enquiry type and any special requests. We can then send it via WhatsApp for follow-up.' } },
-    { keywords: ['verblyf', 'accommodation', 'stay', 'sleep', 'room', 'kamer', 'guest', 'overnight'], reply: { af: 'The Village wys ’n warm, netjiese verblyf-ervaring. Stuur asseblief jou datums, aantal gaste en enige behoeftes, dan kan Anne beskikbaarheid bevestig.', en: 'The Village offers a warm, neat guest-stay feel. Please send your dates, number of guests and any needs, then Anne can confirm availability.' } },
+    { keywords: ['verblyf', 'accommodation', 'stay', 'sleep', 'room', 'kamer', 'guest', 'overnight'], reply: { af: 'The Village wys ’n warm, netjiese verblyf-ervaring. Stuur asseblief jou datums, aantal gaste en enige behoeftes, dan kan Annè beskikbaarheid bevestig.', en: 'The Village offers a warm, neat guest-stay feel. Please send your dates, number of guests and any needs, then Annè can confirm availability.' } },
     { keywords: ['event', 'byeenkoms', 'function', 'party', 'geleentheid', 'gathering', 'celebration', 'groep'], reply: { af: 'The Village is geskik vir rustige byeenkomste, spesiale oomblikke en groep-ervarings. Stuur jou datum, aantal mense, tipe geleentheid en wat jy in gedagte het.', en: 'The Village is suited to peaceful gatherings, special moments and group experiences. Send your date, number of people, type of event and what you have in mind.' } },
     { keywords: ['resa', 'beauty', 'skoonheid', 'versorging', 'treatment', 'behandeling', 'self-care', 'selfversorging'], reply: { af: 'Resa is die sagte skoonheid- en versorgingsruimte by The Village. Jy kan vra oor behandelings, selfversorging, kreatiewe ervarings of produkte.', en: 'Resa is the gentle beauty and self-care space at The Village. You can ask about treatments, self-care, creative experiences or products.' } },
     { keywords: ['products', 'produkte', 'prys', 'price', 'catalogue', 'catalog', 'koop', 'buy'], reply: { af: 'Resa het ’n produk-afdeling en pryslys op die webwerf. Stuur watter produk of tipe produk jy soek, dan kan ons jou na die regte opsie lei.', en: 'Resa has a product section and price list on the website. Send which product or product type you want, and we can guide you to the right option.' } },
