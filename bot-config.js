@@ -19,7 +19,7 @@ window.SmartSiteBotConfig = {
       agentLabel: 'Praat met iemand',
       agentPrompt: 'Geen probleem — wil jy met iemand op WhatsApp praat?',
       whatsappLabel: 'Praat op WhatsApp',
-      quickReplies: ['Waarmee kan julle help?', 'Ek wil bespreek', 'Verblyf', 'Byeenkoms of event', 'Resa beauty', 'Resa produkte', 'Ligging', 'Hoe het The Village begin?', 'Watter produkte verkoop julle?', 'WhatsApp Annè']
+      quickReplies: ['Waarmee kan julle help?', 'Ek wil bespreek', 'Verblyf', 'Byeenkoms of event', 'Resa beauty', 'Resa produkte', 'Ligging', 'WhatsApp Annè']
     },
     en: {
       label: 'EN',
@@ -31,7 +31,7 @@ window.SmartSiteBotConfig = {
       agentLabel: 'Speak to someone',
       agentPrompt: 'No problem — would you like to speak to someone on WhatsApp?',
       whatsappLabel: 'Speak on WhatsApp',
-      quickReplies: ['What can you help with?', 'I want to enquire', 'Accommodation', 'Gathering or event', 'Resa beauty', 'Resa products', 'Location', 'How did The Village start?', 'What products do you sell?', 'WhatsApp Annè']
+      quickReplies: ['What can you help with?', 'I want to enquire', 'Accommodation', 'Gathering or event', 'Resa beauty', 'Resa products', 'Location', 'WhatsApp Annè']
     }
   },
   parameters: [
