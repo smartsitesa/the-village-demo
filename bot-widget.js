@@ -41,32 +41,38 @@
     document.getElementById('cSubmit').onclick=()=>{const msg=document.getElementById('cMsg').value.trim(); const name=document.getElementById('cName')?.value.trim(); const email=document.getElementById('cEmail')?.value.trim(); if(kind==='email' && !name){document.getElementById('cNotice').innerHTML='<div class="aiNotice">Please enter your name.</div>';return} if(kind==='email'){location.href='mailto:?subject='+encodeURIComponent(cfg.emailSubject||`${businessName} enquiry`)+'&body='+encodeURIComponent(`Name: ${name}\nEmail: ${email||'Not supplied'}\n\n${msg||generic}`)} else if(kind==='call'){location.href='#contact'} else {window.open(waUrl(msg||generic),'_blank','noreferrer')}};
   }
   function bot(){
+    let lang='af';
+    try { lang = localStorage.getItem('theVillageLanguage') || cfg.defaultLanguage || 'af'; } catch(e) { lang = cfg.defaultLanguage || 'af'; }
+    if(!cfg.languages || !cfg.languages[lang]) lang='af';
+    const L=()=>cfg.languages?.[lang] || {};
     setHead(cfg.botTitle||'Website Bot',cfg.botSubtitle||'Parameter-based assistant');
     const messages=[];
-    const mainOptions = Array.isArray(cfg.quickReplies) ? cfg.quickReplies : [];
-    const followUpOptions = ['Back to menu', 'Speak to an agent'];
-    let activeOptions = mainOptions;
+    let activeOptions = L().quickReplies || cfg.quickReplies || [];
+    const followUpOptions = () => [L().backLabel || 'Back to menu', L().agentLabel || 'Speak to someone'];
+    function replyText(reply){return typeof reply==='object' ? (reply[lang] || reply.af || reply.en || '') : reply}
     function add(type,text,extra=''){messages.push({type,text,extra}); draw();}
+    function langHtml(){return cfg.languages ? `<div class="botLang"><button data-lang="af" class="${lang==='af'?'active':''}">AF</button><button data-lang="en" class="${lang==='en'?'active':''}">EN</button></div>` : ''}
     function optionHtml(){return activeOptions.length ? `<div class="chatChoices inChat">${activeOptions.map(q=>`<button data-quick="${escapeHtml(q)}">${escapeHtml(q)}</button>`).join('')}</div>` : ''}
-    function draw(){body.innerHTML='<div class="aiChat">'+messages.map(m=>`<div class="chatMsg ${m.type}">${escapeHtml(m.text)}${m.extra||''}</div>`).join('')+optionHtml()+'</div><div class="chatInputRow"><input id="botInput" placeholder="Type your message..."><button id="botSend">Send</button></div>'+footer(); const chat=body.querySelector('.aiChat'); chat.scrollTop=chat.scrollHeight; const inp=document.getElementById('botInput'); document.getElementById('botSend').onclick=submit; body.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{ const text=b.dataset.quick; b.classList.add('selected'); setTimeout(()=>submitText(text),90); }); inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submit()}}; setTimeout(()=>inp.focus(),20)}
-    function findReply(text){const t=text.toLowerCase(); for(const p of params){if((p.keywords||[]).some(k=>t.includes(String(k).toLowerCase()))) return p.reply} return null}
+    function draw(){body.innerHTML=langHtml()+'<div class="aiChat">'+messages.map(m=>`<div class="chatMsg ${m.type}">${escapeHtml(m.text)}${m.extra||''}</div>`).join('')+optionHtml()+'</div><div class="chatInputRow"><input id="botInput" placeholder="'+escapeHtml(L().inputPlaceholder||'Type your message...')+'"><button id="botSend">'+escapeHtml(L().sendLabel||'Send')+'</button></div>'+footer(); const chat=body.querySelector('.aiChat'); chat.scrollTop=chat.scrollHeight; const inp=document.getElementById('botInput'); document.getElementById('botSend').onclick=submit; body.querySelectorAll('[data-lang]').forEach(b=>b.onclick=()=>switchLang(b.dataset.lang)); body.querySelectorAll('[data-quick]').forEach(b=>b.onclick=()=>{ const text=b.dataset.quick; b.classList.add('selected'); setTimeout(()=>submitText(text),90); }); inp.onkeydown=e=>{if(e.key==='Enter'){e.preventDefault();submit()}}; setTimeout(()=>inp.focus(),20)}
+    function switchLang(next){lang=next; try { localStorage.setItem('theVillageLanguage', lang); } catch(e) {} activeOptions=L().quickReplies || []; messages.length=0; add('bot', L().introMessage || `Hello 👋 How can I assist you with ${businessName}?`);}
+    function findReply(text){const t=text.toLowerCase(); for(const p of params){if((p.keywords||[]).some(k=>t.includes(String(k).toLowerCase()))) return replyText(p.reply)} return null}
     function setNextOptions(options){activeOptions=options; draw();}
-    function showMainMenu(){activeOptions=mainOptions; add('bot',cfg.introMessage || `Hello 👋 How can I assist you with ${businessName}?`);}
-    function agentReply(text){const link=`<br><br><a target="_blank" rel="noreferrer" style="color:#0b7d16;font-weight:900" href="${waUrl('Hi '+businessName+', I need help with: '+text)}">Speak to an agent on WhatsApp</a>`; setTimeout(()=>{add('bot','No problem — do you want to speak to an agent?',link); setNextOptions(['Back to menu']);},250)}
+    function showMainMenu(){activeOptions=L().quickReplies || []; add('bot',L().introMessage || `Hello 👋 How can I assist you with ${businessName}?`);}
+    function agentReply(text){const label=L().whatsappLabel || 'Speak on WhatsApp'; const link=`<br><br><a target="_blank" rel="noreferrer" style="color:#0b7d16;font-weight:900" href="${waUrl('Hi '+businessName+', I need help with: '+text)}">${escapeHtml(label)}</a>`; setTimeout(()=>{add('bot',L().agentPrompt || 'No problem — would you like to speak to someone on WhatsApp?',link); setNextOptions([L().backLabel || 'Back to menu']);},250)}
     /* contextual option button sends message into bot, then disappears */
     function submitText(text){
       if(!text)return;
       activeOptions=[];
       add('user',text);
       const lower=text.toLowerCase();
-      if(lower==='back to menu'){setTimeout(()=>showMainMenu(),180);return}
-      if(lower==='speak to an agent'){agentReply(text);return}
+      if(lower===(L().backLabel||'Back to menu').toLowerCase() || lower==='back to menu' || lower==='terug na menu'){setTimeout(()=>showMainMenu(),180);return}
+      if(lower===(L().agentLabel||'Speak to someone').toLowerCase() || lower==='speak to an agent' || lower==='whatsapp anne'){agentReply(text);return}
       const reply=findReply(text);
-      if(reply){setTimeout(()=>{add('bot',reply); setNextOptions(followUpOptions);},250)}
-      else{const link=`<br><br><a target="_blank" rel="noreferrer" style="color:#0b7d16;font-weight:900" href="${waUrl('Hi '+businessName+', I need help with: '+text)}">Speak to an agent on WhatsApp</a>`; setTimeout(()=>{add('bot',cfg.fallback||'I am not sure about that. Do you want to speak to an agent?',link); setNextOptions(['Back to menu']);},250)}
+      if(reply){setTimeout(()=>{add('bot',reply); setNextOptions(followUpOptions());},250)}
+      else{const label=L().whatsappLabel || 'Speak on WhatsApp'; const link=`<br><br><a target="_blank" rel="noreferrer" style="color:#0b7d16;font-weight:900" href="${waUrl('Hi '+businessName+', I need help with: '+text)}">${escapeHtml(label)}</a>`; setTimeout(()=>{add('bot',L().fallback||cfg.fallback||'I am not sure about that. Do you want to speak to an agent?',link); setNextOptions([L().backLabel || 'Back to menu']);},250)}
     }
     function submit(){const inp=document.getElementById('botInput'); const text=inp.value.trim(); inp.value=''; submitText(text)}
-    add('bot',cfg.introMessage || `Hello 👋 How can I assist you with ${businessName}?`);
+    add('bot',L().introMessage || `Hello 👋 How can I assist you with ${businessName}?`);
   }
   function render(v){if(v==='menu')menu(); if(v==='email'||v==='call'||v==='whatsapp')contact(v); if(v==='bot')bot();}
   document.getElementById('aiFab').onclick=()=>{panel.hidden=false;render('menu')};
