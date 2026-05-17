@@ -1,0 +1,111 @@
+/* SmartSite Motion Pack v1 — lightweight CSS utilities */
+:root {
+  --ss-motion-distance: 22px;
+  --ss-motion-duration: 720ms;
+  --ss-motion-ease: cubic-bezier(.2,.78,.22,1);
+  --ss-motion-glow: rgba(176,122,79,.24);
+}
+
+.ss-reveal,
+.ss-reveal-item {
+  opacity: 0;
+  transform: translateY(var(--ss-motion-distance));
+  transition:
+    opacity var(--ss-motion-duration) var(--ss-motion-ease),
+    transform var(--ss-motion-duration) var(--ss-motion-ease),
+    filter var(--ss-motion-duration) var(--ss-motion-ease);
+  will-change: opacity, transform;
+}
+
+.ss-reveal.ss-in,
+.ss-reveal-item.ss-in,
+.ss-in .ss-reveal-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ss-stagger .ss-reveal-item:nth-child(1) { transition-delay: 0ms; }
+.ss-stagger .ss-reveal-item:nth-child(2) { transition-delay: 90ms; }
+.ss-stagger .ss-reveal-item:nth-child(3) { transition-delay: 180ms; }
+.ss-stagger .ss-reveal-item:nth-child(4) { transition-delay: 270ms; }
+.ss-stagger .ss-reveal-item:nth-child(5) { transition-delay: 360ms; }
+.ss-stagger .ss-reveal-item:nth-child(6) { transition-delay: 450ms; }
+
+.ss-hover-lift {
+  transition: transform 260ms ease, box-shadow 260ms ease, border-color 260ms ease;
+}
+.ss-hover-lift:hover,
+.ss-hover-lift:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 60px rgba(20, 12, 8, .14);
+}
+
+.ss-image-zoom {
+  overflow: hidden;
+}
+.ss-image-zoom img {
+  transition: transform 900ms var(--ss-motion-ease), filter 900ms var(--ss-motion-ease);
+}
+.ss-image-zoom:hover img {
+  transform: scale(1.055);
+  filter: saturate(1.05) contrast(1.03);
+}
+
+.ss-cta-pulse {
+  position: relative;
+  isolation: isolate;
+}
+.ss-cta-pulse::after {
+  content: '';
+  position: absolute;
+  inset: -7px;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(circle, var(--ss-motion-glow), transparent 70%);
+  opacity: 0;
+  transform: scale(.92);
+  animation: ssCtaPulse 4.8s ease-in-out 2s infinite;
+}
+@keyframes ssCtaPulse {
+  0%, 72%, 100% { opacity: 0; transform: scale(.92); }
+  82% { opacity: 1; transform: scale(1); }
+}
+
+.ss-float-soft {
+  animation: ssFloatSoft 7s ease-in-out infinite;
+}
+@keyframes ssFloatSoft {
+  0%, 100% { transform: translate3d(0,0,0); }
+  50% { transform: translate3d(0,-10px,0); }
+}
+
+.ss-kenburns {
+  overflow: hidden;
+}
+.ss-kenburns > img,
+.ss-kenburns > picture img {
+  animation: ssKenburns 16s ease-in-out infinite alternate;
+  transform-origin: center;
+}
+@keyframes ssKenburns {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.ss-counter {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .001ms !important;
+  }
+  .ss-reveal,
+  .ss-reveal-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
